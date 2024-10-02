@@ -92,10 +92,35 @@ export default async ({ $http }: { $http: HttpClient }) => {
 };
 ```
 
+## What do you get
+
+Zero transpiles down to javascript that create dom nodes. Therefore you can use all methods available on the dom. Its a very developer friendly vanillajs version
+
 ## How does it work?
 
 Under the hood zero is just a few snippets and vite/esbuild configuration that configures the transpiling process of jsx to js.
 
+```js
+
+// vite.config.js
+import { defineConfig } from 'vite';
+import { resolve } from 'path';
+
+export default defineConfig({
+  resolve: {
+    alias: {
+      '~': resolve(__dirname, 'src'),
+    },
+  },
+  esbuild: {
+    loader: 'tsx', // Tell vite to resolve tsx fle
+    jsxInject: `import {__createElement, __createFragment} from '~/jsx.js'`, // Tell vite to inject this functions into the main js file
+    jsxFactory: '__createElement', // Tell vite to use this name as jsx factory function. in react its React.createElement or "h" in preact.
+    jsxFragment: '__createFragment', // Tell vite to use this name as jsx fragment function. in react its React.createElement or "h" in preact.
+  },
+});
+
+```
 
 ## Goals
 
