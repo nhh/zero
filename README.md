@@ -2,7 +2,10 @@
 
 Zero is not a framework. Zero is an approach to modern frontend development without the need of a framework. Technically, Zero is a set of types and functions that enables jsx to be transpiled in dom nodes.
 
-This is the runtime overhead you need to make that happen.
+With only a few lines of javascript, you can write the following:
+
+<details>
+    <summary>See the script needed</summary>
 
 ```js
 export const __createElement = (tag, props, ...children) => {
@@ -49,8 +52,7 @@ export const __createFragment = (props, ...children) => {
   return children;
 };
 ```
-
-This is what the snippet enables you to do:
+</details>
 
 ```tsx
 import { Navbar } from "../components/navbar.tsx";
