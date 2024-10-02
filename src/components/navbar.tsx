@@ -1,68 +1,80 @@
 import { Routes } from "../main";
 
-const A = (props: { title: string; href: Routes }) => (
-  <a
-    href={props.href}
-    class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
-    aria-current="page"
-  >
-    {props.title}
-  </a>
+const NavLink = (props: { href: Routes; active?: boolean }, children: any) => (
+  <li>
+    <a
+      href={props?.href ?? ""}
+      class={`hover:underline  hover:text-slate-800 ${
+        props.active ? "text-slate-900" : "text-slate-600"
+      }`}
+      aria-current="page"
+    >
+      {children ?? "No text available"}
+    </a>
+  </li>
 );
 
-export const Navbar = () => (
-  <nav class="bg-white border-gray-200 dark:bg-gray-900">
-    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-      <a
-        href="https://flowbite.com/"
-        class="flex items-center space-x-3 rtl:space-x-reverse"
-      >
-        <img
-          src="https://flowbite.com/docs/images/logo.svg"
-          class="h-8"
-          alt="Flowbite Logo"
-        />
-        <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-          Flowbite
-        </span>
-      </a>
-      <button
-        data-collapse-toggle="navbar-default"
-        type="button"
-        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-        aria-controls="navbar-default"
-        aria-expanded="false"
-      >
-        <span class="sr-only">Open main menu</span>
-        <svg
-          class="w-5 h-5"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 17 14"
-        >
-          <path
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M1 1h15M1 7h15M1 13h15"
-          />
-        </svg>
-      </button>
-      <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-        <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-          <li>
-            <A title="Home" href="#/"></A>
-          </li>
-          <li>
-            <A title="Dashboard" href="#/dashboard"></A>
-          </li>
-          <li>
-            <A title="Login" href="#/login"></A>
-          </li>
+const nestedUlStyle = "pl-3 mt-3 space-y-2 border-l"
+export const Navbar = (_: any, __: any) => (
+  <nav class="h-full w-64 pr-8 text-base lg:text-sm overflow-y-auto border-r">
+    <img class="h-24 mx-auto" src="https://www.chartjs.org/img/chartjs-logo.svg"></img>
+    <ul
+      role="list"
+      class="h-full py-7 space-y-8"
+    >
+      <li>
+        <h3 class="font-semibold tracking-tight text-slate-900">
+          Introduction
+        </h3>
+
+        <ul role="list" class={nestedUlStyle}>
+          <NavLink href="#/docs/quickstart-guide">Installation</NavLink>
+          <NavLink href="#/docs/quickstart-guide">Quick start guide</NavLink>
+          <NavLink href="#/docs/quickstart-guide">How it works</NavLink>
         </ul>
-      </div>
-    </div>
+      </li>
+
+      <li>
+        <h3 class="font-semibold tracking-tight text-slate-900">Guides</h3>
+
+        <ul role="list" class={nestedUlStyle}>
+          <NavLink href="#/docs/quickstart-guide">Export differences</NavLink>
+          <NavLink href="#/docs/quickstart-guide">Change head tags</NavLink>
+          <NavLink href="#/docs/quickstart-guide">Scoped styles</NavLink>
+          <NavLink href="#/docs/quickstart-guide">Add script tags</NavLink>
+          <NavLink href="#/docs/quickstart-guide">Add a mounted function</NavLink>
+          <NavLink href="#/docs/quickstart-guide">Fetch data</NavLink>
+          <NavLink href="#/docs/quickstart-guide">Internationalization (i18n)</NavLink>
+          <NavLink href="#/docs/quickstart-guide">Add a layout</NavLink>
+          <NavLink href="#/docs/quickstart-guide">Implement a router</NavLink>
+          <NavLink href="#/docs/quickstart-guide">Store state</NavLink>
+          <NavLink href="#/docs/quickstart-guide">Work with the DOM</NavLink>
+        </ul>
+      </li>
+
+      <li>
+        <h3 class="font-semibold tracking-tight text-slate-900">
+          Integrations
+        </h3>
+
+        <ul role="list" class={nestedUlStyle}>
+          <NavLink href="#/docs/quickstart-guide">Use TailwindCSS</NavLink>
+          <NavLink href="#/docs/quickstart-guide">Use Bulma.css</NavLink>
+          <NavLink href="#/docs/quickstart-guide">Write your own css</NavLink>
+          <NavLink href="#/docs/quickstart-guide">Charts with chart.js</NavLink>
+          <NavLink href="#/docs/quickstart-guide">Image optimization with imgproxy</NavLink>
+        </ul>
+      </li>
+
+      <li>
+        <h3 class="font-semibold tracking-tight text-slate-900">
+          Examples
+        </h3>
+
+        <ul role="list" class={nestedUlStyle}>
+          <NavLink href="#/docs/quickstart-guide">TailwindCSS</NavLink>
+        </ul>
+      </li>
+    </ul>
   </nav>
 );

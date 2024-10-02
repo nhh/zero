@@ -1,6 +1,8 @@
 import "./style.css";
-import Docs from "./pages/docs.tsx"
+import Docs from "./pages/docs.tsx";
 import { HttpClient } from "./plugins/http.ts";
+import { QuickstartGuide } from "./pages/quickstart-guide.tsx";
+import { DefaultLayout } from "./layouts/default.tsx";
 
 const NotFound = () => (
   <section class="h-screen w-screen bg-red-200 text-2xl text-black">
@@ -9,12 +11,23 @@ const NotFound = () => (
 );
 
 const routes = {
-  "#/": Docs,
-  "": Docs,
-  "#/docs": Docs,
+  "#/": (_: any) => (
+    <DefaultLayout>
+      <Docs />
+    </DefaultLayout>
+  ),
+  "": (_: any) => (
+    <DefaultLayout>
+      <Docs />
+    </DefaultLayout>
+  ),
+  "#/docs/quickstart-guide": (_: any) => (
+    <DefaultLayout>
+      <QuickstartGuide />
+    </DefaultLayout>
+  ),
 };
 
-// WILDE TYPESCRIPT ACTION
 export type Routes = keyof typeof routes;
 
 let lastHash: string = "initial";
@@ -29,12 +42,12 @@ const render = async () => {
   if (lastHash === location.hash) return;
 
   lastHash = location.hash;
-  const func = routes[location.hash as Routes] ?? NotFound;
+  const func = routes[location.hash as Routes] ?? <NotFound />;
 
   if (root?.firstChild) {
-    root?.firstChild?.replaceWith(await func({ ...context }));
+    root?.firstChild?.replaceWith(func({ ...context }));
   } else {
-    root?.appendChild(await func({ ...context }));
+    root?.appendChild(func({ ...context }));
   }
 };
 
