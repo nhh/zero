@@ -31,6 +31,7 @@ export const Navbar = (_: any, __: any) => (
         </h3>
 
         <ul role="list" class={nestedUlStyle}>
+          <NavLink href="#/">Home</NavLink>
           <NavLink href="#/docs/quickstart-guide">Installation</NavLink>
           <NavLink href="#/docs/quickstart-guide">Quickstart (vite)</NavLink>
           <NavLink href="#/docs/quickstart-guide">How it works</NavLink>
@@ -76,7 +77,9 @@ export const Navbar = (_: any, __: any) => (
           <NavLink href="#/docs/quickstart-guide">Use Bulma.css</NavLink>
           <NavLink href="#/docs/quickstart-guide">Write your own css</NavLink>
           <NavLink href="#/docs/quickstart-guide">Charts with chart.js</NavLink>
-          <NavLink href="#/docs/integrations/shiki">Syntax highlighting with Shiki</NavLink>
+          <NavLink href="#/docs/integrations/shiki">
+            Syntax highlighting with Shiki
+          </NavLink>
           <NavLink href="#/docs/quickstart-guide">
             Image optimization with imgproxy
           </NavLink>

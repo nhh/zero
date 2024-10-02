@@ -57,6 +57,7 @@ const render = async () => {
   }
 };
 
-window.onpopstate = render;
+// @ts-ignore
+window.onpopstate = () => document.startViewTransition(render);
 
 render();
