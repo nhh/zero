@@ -1,6 +1,6 @@
 # Zero Framework
 
-Zero is not a framework. Zero is an approach to modern frontend development without the need of a complex framework. Technically Zero is a set of types and functions that enables jsx to be transpiled in dom nodes.
+Zero is not a framework. Zero is an approach to modern frontend development without the need of a framework. Technically, Zero is a set of types and functions that enables jsx to be transpiled in dom nodes.
 
 This is the runtime overhead you need to make that happen.
 
