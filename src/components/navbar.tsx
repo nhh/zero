@@ -1,4 +1,5 @@
 import { Routes } from "../main";
+import { Optimize } from "./optimize";
 
 const NavLink = (props: { href: Routes; active?: boolean }, children: any) => (
   <li>
@@ -15,9 +16,13 @@ const NavLink = (props: { href: Routes; active?: boolean }, children: any) => (
 );
 
 const nestedUlStyle = "pl-3 mt-3 space-y-2 border-l"
+const logoUrl = "https://pluspng.com/img-png/react-logo-png-react-logo-png-transparent-amp-svg-vector-pluspng-2400x2400.png"
+
 export const Navbar = (_: any, __: any) => (
   <nav class="h-full w-64 pr-8 text-base lg:text-sm overflow-y-auto border-r">
-    <img class="h-24 mx-auto" src="https://www.chartjs.org/img/chartjs-logo.svg"></img>
+    <Optimize>
+      <img height={40} width={40} src={logoUrl}></img>
+    </Optimize>
     <ul
       role="list"
       class="h-full py-7 space-y-8"
