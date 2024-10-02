@@ -21,6 +21,5 @@
     "noFallthroughCasesInSwitch": true,
     "typeRoots": ["./@types"]
   },
-  "include": ["src", "zero.ts"],
-  "exclude": ["src/components/shiki/"]
+  "include": ["src", "zero.ts"]
 }

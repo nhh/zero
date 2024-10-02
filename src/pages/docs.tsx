@@ -2,6 +2,8 @@ import { Cards } from "../components/cards";
 import { Footer } from "../components/footer";
 import { i18n } from "../plugins/i18n";
 import { Highlight } from "../components/highlight";
+import * as exampleCss from "../blocks/example.shiki.css"
+import * as exampleTsx from "../blocks/example.shiki.tsx"
 
 export const Docs = () => {
   const head = [
@@ -20,8 +22,8 @@ export const Docs = () => {
       <Cards>
         <Footer></Footer>
       </Cards>
-      <Highlight>{import("../blocks/example.shiki.css")}</Highlight>
-      <Highlight>{import("../blocks/example.shiki.tsx")}</Highlight>
+      <Highlight>{exampleTsx}</Highlight>
+      <Highlight>{exampleCss}</Highlight>
     </section>
   );
 };
