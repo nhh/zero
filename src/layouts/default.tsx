@@ -1,13 +1,15 @@
 import { Navbar } from "../components/navbar";
 
 export const DefaultLayout = (_: any, children: any) => (
-  <main class="w-full h-full flex px-8">
+  <main class="w-full h-full flex">
     <style></style>
 
-    <div class="h-full hidden lg:block">
+    <div class="h-full hidden lg:block overflow-y-auto">
       <Navbar></Navbar>
     </div>
 
-    {children}
+    <div class="h-full overflow-y-auto w-full px-10">
+      {children}
+    </div>
   </main>
 );

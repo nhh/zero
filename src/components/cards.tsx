@@ -5,7 +5,7 @@ export interface CardsProps {
 }
 
 export const Cards = (_: CardsProps, children: any) => (
-  <div class="flex-auto max-w-2xl min-w-0 px-4 py-10 lg:max-w-none lg:pr-0 lg:pl-8 xl:px-16">
+  <div class="flex-auto max-w-2xl min-w-0 px-4 py-10 lg:max-w-none">
     <article>
       <Header
         title="Zero Framework"

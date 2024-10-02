@@ -1,29 +1,33 @@
-import { codeToHtml } from 'shiki'
+import { codeToHtml } from "shiki";
 import {
   transformerNotationHighlight,
   transformerNotationDiff,
 } from "@shikijs/transformers";
 
-import fs from 'node:fs/promises'
+import fs from "node:fs/promises";
 
 export default function shiki() {
   return {
-    name: 'transform-file',
+    name: "transform-file",
+    enforce: "post", // needed because vite does stuff with css files, so the final code is always undefined
     async transform(_, file) {
-      if (!file.includes('.shiki')) return
+      if (!file.includes(".shiki")) return
 
-      const code = await fs.readFile(file, {encoding: 'utf-8'})
+      const code = await fs.readFile(file, { encoding: "utf-8" });
 
       const html = await codeToHtml(code, {
         lang: file.split(".").at(-1), // returns hopefully the correct language suffix ()
-        theme: 'nord',
-        transformers: [transformerNotationHighlight(), transformerNotationDiff()],
-      })
+        theme: "nord",
+        transformers: [
+          transformerNotationHighlight(),
+          transformerNotationDiff(),
+        ],
+      });
 
       return {
-        code: (`export default \`${html}\``),
-        map: null
-      }
+        code: `export default \`${html}\``,
+        map: null,
+      };
     },
-  }
+  };
 }

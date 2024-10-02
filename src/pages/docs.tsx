@@ -20,7 +20,8 @@ export const Docs = () => {
       <Cards>
         <Footer></Footer>
       </Cards>
-      <Highlight>{import("../blocks/example.shiki")}</Highlight>
+      <Highlight>{import("../blocks/example.shiki.css")}</Highlight>
+      <Highlight>{import("../blocks/example.shiki.tsx")}</Highlight>
     </section>
   );
 };

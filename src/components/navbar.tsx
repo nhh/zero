@@ -20,11 +20,11 @@ const logoUrl =
   "https://pluspng.com/img-png/react-logo-png-react-logo-png-transparent-amp-svg-vector-pluspng-2400x2400.png";
 
 export const Navbar = (_: any, __: any) => (
-  <nav class="h-full w-64 pr-8 text-base lg:text-sm overflow-y-auto border-r">
+  <nav class="h-full text-base lg:text-sm w-full border-r px-8">
     <Optimize>
-      <img height={40} width={40} src={logoUrl}></img>
+      <img class="hidden" height={40} width={40} src={logoUrl}></img>
     </Optimize>
-    <ul role="list" class="h-full py-7 space-y-8">
+    <ul role="list" class="py-4 space-y-8">
       <li>
         <h3 class="font-semibold tracking-tight text-slate-900">
           Introduction

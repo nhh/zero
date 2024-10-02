@@ -4,9 +4,7 @@ export const Shiki = () => <div>Hello World</div>;
 
 export const Footer = () => (
   <dl class="flex pt-6 mt-6 border-t border-slate-200">
-
-    <style>color: red;</style>
-    // [!code ++]
+    <style>color: red;</style> // [!code ++]
     <div class="ml-auto text-right">
       <dt class="text-sm font-normal tracking-tight text-slate-600">Next</dt>
 
