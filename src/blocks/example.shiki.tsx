@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 export const Shiki = () => <div>Hello World</div>;
 
 export const Footer = () => (

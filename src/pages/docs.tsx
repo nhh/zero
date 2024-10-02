@@ -20,7 +20,7 @@ export const Docs = () => {
       <Cards>
         <Footer></Footer>
       </Cards>
-      <Highlight>{import("../components/shiki/example.shiki")}</Highlight>
+      <Highlight>{import("../blocks/example.shiki")}</Highlight>
     </section>
   );
 };
