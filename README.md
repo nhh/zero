@@ -2,6 +2,14 @@
 
 Zero is not a framework. Zero is an approach to modern frontend development without the need of a framework. Technically, Zero is a set of types and functions that enables jsx to be transpiled in dom nodes.
 
+## Goals
+
+I see modern frameworks not as technology, they are a products. Often your users don't need pr even benefit from updates, but you do - the developer. With zero, you never have to update any framework, because its just the dom.
+
+## Non-Goals
+
+Become a framework, that can have breaking changes and or updates. Provide a npm package so you can download the code.
+
 With only a few lines of javascript, you can write the following:
 
 <details>
@@ -58,15 +66,14 @@ export const __createFragment = (props, ...children) => {
 import { Navbar } from "../components/navbar.tsx";
 import { HttpClient } from "../plugins/http.ts";
 
-// Create and reuse scoped styles
-// Very much like styled components
-const flex = <style>display: flex;</style>;
-
 // Use self made dependency injection
 export default async ({ $http }: { $http: HttpClient }) => {
   // Have dom nodes as references
   let title = <div>loading...</div>;
   let helloWorld = <text>Hello world</text>;
+
+  // Have dom nodes as configurable factories
+  const MyButton = (props: {title: string}) => <button>{props.title}</button>
 
   // You dont need reactivity, just use getter/setter
   setInterval(() => (helloWorld.innerText = Math.random().toString()), 25);
@@ -79,29 +86,22 @@ export default async ({ $http }: { $http: HttpClient }) => {
 
   return (
     <section>
-      {
-        // The "flex" style is scoped to the parent dom node
-      }
-      {flex}
+      <style comment="This style only applies to the parent node (section)" >display: flex;</style>
       <Navbar></Navbar>
+      
       {title}
       {helloWorld}
-      {Math.round(Math.random()) % 2 === 0 ? (<style>background-color: red;</style>) : (<style>background-color: green;</style>)}
+      <MyButton />
     </section>
   );
 };
 ```
 
-## What do you get
-
-Zero transpiles down to javascript that create dom nodes. Therefore you can use all methods available on the dom. Its a very developer friendly vanillajs version
-
 ## How does it work?
 
-Under the hood zero is just a few snippets and vite/esbuild configuration that configures the transpiling process of jsx to js.
+Under the hood zero is just a few snippets and vite/esbuild configuration that configures the transpiling process of jsx to js. All functions return dom nodes, herefore you can use all methods available on the dom.
 
 ```js
-
 // vite.config.js
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
@@ -121,10 +121,6 @@ export default defineConfig({
 });
 
 ```
-
-## Goals
-
-Zero is a toolset that can be used to break free of product updates. I see modern frameworks not as technology, they are a product. Often your endusers dont need any updates, but you do - the developer. With zero, you never have to update any framework, because its just the dom.
 
 ## Types
 
