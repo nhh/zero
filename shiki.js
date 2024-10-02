@@ -8,10 +8,13 @@ import fs from "node:fs/promises";
 
 export default function shiki() {
   return {
-    name: "transform-file",
+    name: "source2shiki",
     enforce: "post", // needed because vite does stuff with css files, so the final code is always undefined
     async transform(_, file) {
       if (!file.includes(".shiki")) return
+      if (!file.includes("?inline")) throw new Error("Can't transform src files not imported with inline option. Please add ?inline to your import")
+
+      file = file.replace("?inline", "")
 
       const code = await fs.readFile(file, { encoding: "utf-8" });
 

@@ -1,7 +1,7 @@
 import { Header } from "../../components/header";
 import { Highlight } from "../../components/highlight";
-import * as exampleCss from "../../blocks/example.shiki.css"
-import * as exampleTxt from "../../blocks/example.shiki.css"
+import * as exampleCss from "../../blocks/example.shiki.css?inline"
+import * as exampleTxt from "../../blocks/folder-structure.shiki.txt?inline"
 
 export const ShikiPage = () => (
     <section class="py-2">
