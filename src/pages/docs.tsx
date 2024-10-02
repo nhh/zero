@@ -1,7 +1,7 @@
 import CodeBlock from "../components/code-block"
 import Highlight from "../components/highlight";
 
-export default async () => {
+export default async (_: any) => {
 
     const head = [
         <title>Zero Docs</title>,
@@ -17,7 +17,7 @@ export default async () => {
 
     return (
       <section>
-        <Highlight class="rounded p-2">
+        <Highlight class="hidden rounded p-2">
             {
 `const head = [
     <title>Zero Docs</title>,

@@ -1,7 +1,4 @@
 import "./style.css";
-import App from "./pages/index.tsx";
-import Login from "./pages/login.tsx";
-import Dashboard from "./pages/dashboard.tsx";
 import Docs from "./pages/docs.tsx"
 import { HttpClient } from "./plugins/http.ts";
 
@@ -12,10 +9,8 @@ const NotFound = () => (
 );
 
 const routes = {
-  "#/": App,
-  "": App,
-  "#/login": Login,
-  "#/dashboard": Dashboard,
+  "#/": Docs,
+  "": Docs,
   "#/docs": Docs,
 };
 
