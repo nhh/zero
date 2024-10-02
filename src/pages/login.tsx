@@ -18,7 +18,6 @@ export default async ({ $http }: { $http: HttpClient }) => {
 
   // reactive alternative, when let str = "" and is used as prop in a div
   // setInterval(() => str = Math.random().toString(), 25)
-
   $http
     .get("https://jsonplaceholder.typicode.com/todos/1")
     .then((res) => res.json())
