@@ -1,8 +1,10 @@
 // vite.config.js
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
+import shiki from "./shiki.js"
 
 export default defineConfig({
+  plugins: [shiki()],
   resolve: {
     alias: {
       '~': resolve(__dirname, 'src'),

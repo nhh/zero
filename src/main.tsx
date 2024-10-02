@@ -1,5 +1,5 @@
 import "./style.css";
-import Docs from "./pages/docs.tsx";
+import { Docs } from "./pages/docs.tsx";
 import { HttpClient } from "./plugins/http.ts";
 import { QuickstartGuide } from "./pages/quickstart-guide.tsx";
 import { DefaultLayout } from "./layouts/default.tsx";

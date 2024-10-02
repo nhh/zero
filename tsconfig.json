@@ -22,4 +22,5 @@
     "typeRoots": ["./@types"]
   },
   "include": ["src", "zero.ts"],
+  "exclude": ["src/components/shiki/"]
 }

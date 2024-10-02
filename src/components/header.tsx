@@ -1,15 +1,14 @@
-export const Header = () => (
+export const Header = (props?: {title?: string, subtitle?: string, pre?: string}) => (
   <>
     <header>
-      <p class="text-base font-medium text-slate-500">Getting started</p>
+      <p class="text-base font-medium text-slate-500">{props?.pre ?? '[props.pre]'}</p>
 
       <h1 class="text-3xl font-bold tracking-tight text-slate-900">
-        Quickstart guide
+        {props?.title ?? '[props.title]'}
       </h1>
     </header>
     <p class="mt-2 text-xl text-slate-600">
-      Need to get started quickly with Zero? You will learn all the basics in
-      just minutes.
+      {props?.subtitle ?? '[props.subtitle]'}
     </p>
   </>
 );

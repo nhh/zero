@@ -1,10 +1,11 @@
 import { Cards } from "../components/cards";
 import { Footer } from "../components/footer";
-import Highlight from "../components/highlight";
+import { i18n } from "../plugins/i18n";
+import { Highlight } from "../components/highlight";
 
-export default (_?: any) => {
+export const Docs = () => {
   const head = [
-    <title>Zero Docs</title>,
+    <title>{i18n["pages/docs/title"]}</title>,
     <meta name="description" content="Free Web tutorials" />,
     <meta name="keywords" content="HTML, CSS, JavaScript" />,
     <meta name="author" content="John Doe" />,
@@ -16,19 +17,10 @@ export default (_?: any) => {
 
   return (
     <section>
-      <Highlight class="hidden rounded p-2">
-        {`const head = [
-    <title>Zero Docs</title>,
-    <meta charset="UTF-8" />,
-    <meta name="description" content="Free Web tutorials" />,
-    <meta name="keywords" content="HTML, CSS, JavaScript" />,
-    <meta name="author" content="John Doe" />,
-]`}
-      </Highlight>
-
       <Cards>
         <Footer></Footer>
       </Cards>
+      <Highlight>{import("../components/shiki/example.shiki")}</Highlight>
     </section>
   );
 };

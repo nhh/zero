@@ -17,3 +17,44 @@ html, body, #app {
 ::-webkit-scrollbar-thumb {
   background-color: rgb(177, 177, 177); /* color of the scroll thumb */
 }
+
+/* https://www.nikolailehbr.ink/blog/syntax-highlighting-shiki-next-js */
+
+.shiki {
+  counter-reset: step;
+  counter-increment: step 0;
+  .line {
+    @apply border-l-4 border-transparent; 
+    &::before {
+      counter-increment: step;
+      @apply mr-6 inline-block w-4 border-transparent text-right text-gray-500 content-[counter(step)];
+    }
+    &.highlighted, 
+    &.diff { 
+      @apply -ml-4 -mr-5 inline-block w-[calc(100%+(theme(spacing.5)+theme(spacing.4)))] pl-4 pr-5; 
+    } 
+    &.highlighted { 
+      @apply border-neutral-500 bg-neutral-800; 
+    } 
+    &.diff { 
+      &.add, 
+      &.remove { 
+        span:first-child::before { 
+          @apply -ml-4 inline-flex w-4; 
+        } 
+      } 
+      &.add { 
+        @apply border-green-500 bg-green-300/25 before:text-green-500; 
+        span:first-child::before { 
+          @apply text-green-500 content-["+"]; 
+        } 
+      } 
+      &.remove { 
+        @apply border-red-400 bg-red-300/25 before:text-red-400; 
+        span:first-child::before { 
+          @apply text-red-400 content-["-"]; 
+        } 
+      } 
+    } 
+  }
+}

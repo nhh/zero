@@ -1,5 +1,4 @@
 import { Header } from "./header";
-import { VideoTeaser } from "./video-teaser";
 
 export interface CardsProps {
   [key: string]: string;
@@ -8,10 +7,11 @@ export interface CardsProps {
 export const Cards = (_: CardsProps, children: any) => (
   <div class="flex-auto max-w-2xl min-w-0 px-4 py-10 lg:max-w-none lg:pr-0 lg:pl-8 xl:px-16">
     <article>
-
-      <Header></Header>
-
-      <VideoTeaser></VideoTeaser>
+      <Header
+        title="Zero Framework"
+        subtitle="Utilizing typescript and jsx for a productive developer experience, without any runtime dependencies"
+        pre="Introduction"
+      ></Header>
 
       <h3 class="mt-16 text-base font-bold tracking-tight text-slate-900">
         Get set up quickly
