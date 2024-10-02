@@ -10,7 +10,7 @@ I see modern frameworks not as technology, they are a products. Often your users
 
 Become a framework, that can have breaking changes and or updates. Provide a npm package so you can download the code.
 
-# How does it look?
+## How does it look?
 
 ```tsx
 import { Navbar } from "../components/navbar.tsx";
