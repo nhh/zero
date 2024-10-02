@@ -63,18 +63,17 @@ const flex = <style>display: flex;</style>;
 // Use self made dependency injection
 export default async ({ $http }: { $http: HttpClient }) => {
   // Have dom nodes as references
-  let ha1 = <div>loading...</div>;
-  let str = <text>Hello world</text>;
-  //let str = <div>Hello world</div>
+  let title = <div>loading...</div>;
+  let helloWorld = <text>Hello world</text>;
 
   // You dont need reactivity, just use getter/setter
-  setInterval(() => (str.innerText = Math.random().toString()), 25);
+  setInterval(() => (helloWorld.innerText = Math.random().toString()), 25);
 
   // Use modern dom api's to your advantage (replaceWith)
   $http
     .get("https://jsonplaceholder.typicode.com/todos/1")
     .then((res) => res.json())
-    .then((response) => ha1.replaceWith(<h1>{response.title}</h1>));
+    .then((response) => title.replaceWith(<h1>{response.title}</h1>));
 
   return (
     <section>
@@ -83,8 +82,8 @@ export default async ({ $http }: { $http: HttpClient }) => {
       }
       {flex}
       <Navbar></Navbar>
-      {ha1}
-      {str}
+      {title}
+      {helloWorld}
       {Math.round(Math.random()) % 2 === 0 ? (<style>background-color: red;</style>) : (<style>background-color: green;</style>)}
     </section>
   );
