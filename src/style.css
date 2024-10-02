@@ -21,6 +21,7 @@ html, body, #app {
 /* https://www.nikolailehbr.ink/blog/syntax-highlighting-shiki-next-js */
 
 .shiki {
+  overflow-x: auto;
   counter-reset: step;
   counter-increment: step 0;
   .line {
