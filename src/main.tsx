@@ -1,8 +1,9 @@
 import "./style.css";
 import { Docs } from "./pages/docs.tsx";
 import { HttpClient } from "./plugins/http.ts";
-import { QuickstartGuide } from "./pages/quickstart-guide.tsx";
+import { QuickstartGuide } from "./pages/guides/quickstart-guide.tsx";
 import { DefaultLayout } from "./layouts/default.tsx";
+import { ShikiPage } from "./pages/integrations/shiki.tsx";
 
 const NotFound = () => (
   <section class="h-screen w-screen bg-red-200 text-2xl text-black">
@@ -24,6 +25,11 @@ const routes = {
   "#/docs/quickstart-guide": (_: any) => (
     <DefaultLayout>
       <QuickstartGuide />
+    </DefaultLayout>
+  ),
+  "#/docs/integrations/shiki": (_: any) => (
+    <DefaultLayout>
+      <ShikiPage />
     </DefaultLayout>
   ),
 };

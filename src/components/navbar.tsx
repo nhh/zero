@@ -76,6 +76,7 @@ export const Navbar = (_: any, __: any) => (
           <NavLink href="#/docs/quickstart-guide">Use Bulma.css</NavLink>
           <NavLink href="#/docs/quickstart-guide">Write your own css</NavLink>
           <NavLink href="#/docs/quickstart-guide">Charts with chart.js</NavLink>
+          <NavLink href="#/docs/integrations/shiki">Syntax highlighting with Shiki</NavLink>
           <NavLink href="#/docs/quickstart-guide">
             Image optimization with imgproxy
           </NavLink>

@@ -1,0 +1,5 @@
+root/
+├─ src/
+│  ├─ highlight.tsx (Zero component)
+├─ shiki.js (Vite plugin)
+├─ vite.config.js (Vite config)

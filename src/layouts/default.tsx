@@ -8,8 +8,6 @@ export const DefaultLayout = (_: any, children: any) => (
       <Navbar></Navbar>
     </div>
 
-    <div class="h-full overflow-y-auto w-full px-10">
-      {children}
-    </div>
+    <div class="h-full overflow-y-auto w-full px-10">{children}</div>
   </main>
 );

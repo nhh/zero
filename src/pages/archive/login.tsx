@@ -1,5 +1,5 @@
-import { Navbar } from "../components/navbar.tsx";
-import { HttpClient } from "../plugins/http.ts";
+import { Navbar } from "../../components/navbar.tsx";
+import { HttpClient } from "../../plugins/http.ts";
 
 // export default async (ctx: CTX) => {
 
@@ -20,8 +20,8 @@ export default async ({ $http }: { $http: HttpClient }) => {
   // setInterval(() => str = Math.random().toString(), 25)
   $http
     .get("https://jsonplaceholder.typicode.com/todos/1")
-    .then((res) => res.json())
-    .then((response) => ha1.replaceWith(<h1>{response.title}</h1>));
+    .then((res: any) => res.json())
+    .then((response: any) => ha1.replaceWith(<h1>{response.title}</h1>));
 
   return (
     <section>
