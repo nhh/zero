@@ -10,10 +10,49 @@ I see modern frameworks not as technology, they are a products. Often your users
 
 Become a framework, that can have breaking changes and or updates. Provide a npm package so you can download the code.
 
-With only a few lines of javascript, you can write the following:
+# How does it look?
+
+```tsx
+import { Navbar } from "../components/navbar.tsx";
+import { HttpClient } from "../plugins/http.ts";
+
+// Use self made dependency injection
+export default async ({ $http }: { $http: HttpClient }) => {
+  // Have dom nodes as references
+  let title = <div>loading...</div>;
+  let helloWorld = <text>Hello world</text>;
+
+  // Have dom nodes as configurable factories
+  const MyButton = (props: {title: string}) => <button>{props.title}</button>
+
+  // You dont need reactivity, just use getter/setter
+  setInterval(() => (helloWorld.innerText = Math.random().toString()), 25);
+
+  // Use modern dom api's to your advantage (replaceWith)
+  $http
+    .get("https://jsonplaceholder.typicode.com/todos/1")
+    .then((res) => res.json())
+    .then((response) => title.replaceWith(<h1>{response.title}</h1>));
+
+  return (
+    <section>
+      <style comment="This style only applies to the parent node (section)" >display: flex;</style>
+      <Navbar></Navbar>
+      
+      {title}
+      {helloWorld}
+      <MyButton />
+    </section>
+  );
+};
+```
+
+## How does it work?
+
+Under the hood zero is just a few snippets and vite/esbuild configuration that configures the transpiling process of jsx to js. All functions return dom nodes, herefore you can use all methods available on the dom.
 
 <details>
-    <summary>See the script needed</summary>
+    <summary>Runtime javascript</summary>
 
 ```js
 export const __createElement = (tag, props, ...children) => {
@@ -62,44 +101,7 @@ export const __createFragment = (props, ...children) => {
 ```
 </details>
 
-```tsx
-import { Navbar } from "../components/navbar.tsx";
-import { HttpClient } from "../plugins/http.ts";
-
-// Use self made dependency injection
-export default async ({ $http }: { $http: HttpClient }) => {
-  // Have dom nodes as references
-  let title = <div>loading...</div>;
-  let helloWorld = <text>Hello world</text>;
-
-  // Have dom nodes as configurable factories
-  const MyButton = (props: {title: string}) => <button>{props.title}</button>
-
-  // You dont need reactivity, just use getter/setter
-  setInterval(() => (helloWorld.innerText = Math.random().toString()), 25);
-
-  // Use modern dom api's to your advantage (replaceWith)
-  $http
-    .get("https://jsonplaceholder.typicode.com/todos/1")
-    .then((res) => res.json())
-    .then((response) => title.replaceWith(<h1>{response.title}</h1>));
-
-  return (
-    <section>
-      <style comment="This style only applies to the parent node (section)" >display: flex;</style>
-      <Navbar></Navbar>
-      
-      {title}
-      {helloWorld}
-      <MyButton />
-    </section>
-  );
-};
-```
-
-## How does it work?
-
-Under the hood zero is just a few snippets and vite/esbuild configuration that configures the transpiling process of jsx to js. All functions return dom nodes, herefore you can use all methods available on the dom.
+Vite config
 
 ```js
 // vite.config.js
