@@ -57,6 +57,7 @@ import { Navbar } from "../components/navbar.tsx";
 import { HttpClient } from "../plugins/http.ts";
 
 // Create and reuse scoped styles
+// Very much like styled components
 const flex = <style>display: flex;</style>;
 
 // Use self made dependency injection
