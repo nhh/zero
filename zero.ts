@@ -6,6 +6,7 @@ declare global {
       [Property in keyof Type]?: Type[Property];
     } & {
       class?: string;
+      charset?: string
     };
 
     // interface ThisTypeMightBeUseful extends HTMLElementTagNameMap { }
