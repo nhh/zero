@@ -4,7 +4,7 @@ Zero is not a framework. Zero is an approach to modern frontend development with
 
 ## Goals
 
-I see modern frameworks not as technology, they are a products. Often your users don't need pr even benefit from updates, but you do - the developer. With zero, you never have to update any framework, because its just the dom.
+I see modern frameworks not as technology, they are a products. Often your users don't need or even benefit from updates, but you do - the developer. With zero, you never have to update any framework, because its just the dom.
 
 ## Non-Goals
 
